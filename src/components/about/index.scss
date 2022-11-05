@@ -1,1 +1,36 @@
+@import "../../scss/vars";
 
+.about {
+  &__inner {
+    max-width: 584px;
+    width: 100%;
+
+    &-title {
+      font-size: 72px;
+      line-height: 52px;
+      @include f800;
+      margin-top: 102px;
+      margin-bottom: 15px;
+      color: $bg;
+    }
+    &-subtitle {
+      font-size: 34px;
+      line-height: 52px;
+      color: #aaaaaa;
+      @include f500;
+      margin-bottom: 23px;
+    }
+    &-description {
+      &__title {
+        font-size: 24px;
+        line-height: 52px;
+        color: $bg;
+        @include f700;
+        margin-top: 24px;
+      }
+      &__text{
+        color: $bg;
+      }
+    }
+  }
+}

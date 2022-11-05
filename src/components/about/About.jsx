@@ -1,13 +1,17 @@
 import React from "react";
-import { pupkin } from "../../images/pupkin.png";
+import pupkin from "../../images/pupkin.png";
+import "./index.scss";
+
 
 const About = () => {
   return (
-    <div className="about">
+    <div className="about container">
       <div className="about__inner">
         <div className="about__inner-title">Vasya Pupkin</div>
         <div className="about__inner-subtitle">Блог фронтенд-разработчика</div>
-        <img className="about__inner-image" src={pupkin} alt="" />
+        <div className="about__inner-image">
+          <img src={pupkin} alt="pupkin" />
+        </div>
         <div className="about__inner-description">
           <div className="about__inner-description__title">Обо мне</div>
           <div className="about__inner-description__text">
