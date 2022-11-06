@@ -1,9 +1,12 @@
 @import "../../scss/vars";
 
 .about {
+  display: flex;
+  justify-content: space-between;
   &__inner {
     max-width: 584px;
     width: 100%;
+   
 
     &-title {
       font-size: 72px;
