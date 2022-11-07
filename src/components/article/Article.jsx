@@ -2,6 +2,7 @@ import React from "react";
 import articlePost from "../../images/articlePost.png";
 import { ReactComponent as Viewing } from "../../images/content/viewing.svg";
 import HeaderTop from "../header/headerTop/HeaderTop";
+import HeaderTopInput from "../header/headertTopInp/HeaderTopInput";
 import "./index.scss";
 
 const Article = ({
@@ -10,7 +11,8 @@ const Article = ({
 }) => {
   return (
     <div className="article">
-      <HeaderTop/>
+      {/* <HeaderTop/> */}
+      <HeaderTopInput/>
       <div className="article__inner">
       <div className="article__info">
         <div className="article__info-title">{title}</div>
