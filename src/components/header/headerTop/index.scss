@@ -1,0 +1,22 @@
+
+
+.header-top{
+    &__inner{
+        max-width: 620px;
+        width: 100%;
+        padding-left: 30px;
+        padding-right: 45px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 21px;
+        margin-bottom: 22px;
+        &-box__search{
+            margin-right: 27px;
+            cursor: pointer;
+        }
+        &-box__user{
+            cursor: pointer;
+        }
+    }
+}

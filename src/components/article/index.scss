@@ -3,11 +3,13 @@
 .article {
   max-width: 620px;
   width: 100%;
-  padding: 27px 30px;
-  margin-top: 68px;
-  display: flex;
+&__inner{
+    padding: 27px 30px;
+    margin-right: 26px;
+    display: flex;
+}
   &__info {
-
+  
     &-title {
       font-size: 24px;
       line-height: 30px;
@@ -27,12 +29,12 @@
       text-transform: uppercase;
       font-feature-settings: "tnum" on, "lnum" on;
       color: #c1c1c1;
-      &__published{
+      &__published {
         margin-right: 19px;
       }
-      &__viewing{
-        span{
-            margin-left: 5px;
+      &__viewing {
+        span {
+          margin-left: 5px;
         }
       }
     }
