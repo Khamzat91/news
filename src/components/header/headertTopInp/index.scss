@@ -11,11 +11,9 @@
   margin-top: 21px;
   margin-bottom: 22px;
   label {
-    max-width: 314px !important;
     width: 100%;
     input {
       border: none;
-      max-width: 314px !important;
       width: 100%;
       outline: none;
       &::placeholder {
@@ -28,6 +26,7 @@
     height: 16px;
     color: #D3D3D3;
     border: none;
+    margin-left: 10px;
     cursor: pointer;
   }
 }

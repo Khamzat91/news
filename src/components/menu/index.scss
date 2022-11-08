@@ -1,0 +1,43 @@
+@import "../../scss/vars";
+
+.menu {
+  background-color: #13315e;
+  max-width: 100px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: fixed;
+  top: 0;
+  right: 0;
+  transition: all 0.5s;
+  &__inner {
+    margin: 0 auto 47px;
+    cursor: pointer;
+    &-title {
+      transform: rotate(-90deg);
+      color: #fff;
+      @include f600;
+      font-size: 17px;
+      text-transform: uppercase;
+      margin: 34px auto;
+      
+    }
+    &-btn{
+        display: block;
+        width: 20px;
+        margin: 0 auto;
+
+        span{
+            color: #fff;
+            width: 20px;
+            height: 2px;
+            border: 1px solid #fff;
+            margin-bottom: 5px;
+            display: block;
+           
+        }
+    }
+  }
+}
