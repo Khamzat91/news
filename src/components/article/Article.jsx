@@ -9,10 +9,16 @@ const Article = ({
   title = "Какой-то очень интересный заголовок",
   text = " На работе потребовалось запилить задачу для автоматического определения города при совершении заказа",
 }) => {
+const [inputSearch, setInputSearch] = React.useState(false);
+
+const handleInputSearch = () => {
+    setInputSearch(!inputSearch)
+}
+
   return (
     <div className="article">
-      {/* <HeaderTop/> */}
-      <HeaderTopInput/>
+      {inputSearch ? <HeaderTop handleInputSearch={handleInputSearch}/>
+     : <HeaderTopInput handleInputSearch={handleInputSearch}/>}
       <div className="article__inner">
       <div className="article__info">
         <div className="article__info-title">{title}</div>

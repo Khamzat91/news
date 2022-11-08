@@ -4,7 +4,7 @@ import { ReactComponent as Search } from "../../../images/content/search.svg";
 import { ReactComponent as User } from "../../../images/content/user.svg";
 import "./index.scss";
 
-const HeaderTop = () => {
+const HeaderTop = ({handleInputSearch}) => {
   return (
     <div className="header-top">
       <div className="header-top__inner">
@@ -12,7 +12,7 @@ const HeaderTop = () => {
            <img src={logo} alt="" />
         </a>
         <div className="header-top__inner-box">
-            <Search className="header-top__inner-box__search"/>
+            <Search onClick={handleInputSearch} className="header-top__inner-box__search"/>
             <User className="header-top__inner-box__user"/>
         </div>
       </div>
