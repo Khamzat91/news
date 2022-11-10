@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as Exit } from "../../images/content/exit.svg";
 import "./index.scss";
 
-const OpenMenu = () => {
+const OpenMenu = ({handleExitToggle}) => {
   return (
     <div className="open-menu">
       <div className="open-menu__inner">
@@ -27,8 +27,8 @@ const OpenMenu = () => {
           </li>
         </ul>
         <div className="open-menu__inner-exit">
+          <Exit onClick={handleExitToggle} className="open-menu__inner-exit__btn"/>
           <div className="open-menu__inner-exit__title">МЕНЮ</div>
-          <Exit className="open-menu__inner-exit__btn"/>
         </div>
       </div>
     </div>
