@@ -1,0 +1,18 @@
+@import '../../scss/vars';
+
+
+.full-article{
+    display: flex;
+    &__image{
+        position: relative;
+    }
+   &__inner{
+    position: absolute;
+   }
+   &__wrapper{
+        max-width: 1440px;
+    width: 100%;
+padding: 0 0 64px;
+    margin: 0 auto;
+   }
+}

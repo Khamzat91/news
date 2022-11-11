@@ -1,5 +1,6 @@
 import React from "react";
 import About from "./components/about/About";
+import FullArticle from "./components/full-articall/FullArticle";
 import Menu from "./components/menu/Menu";
 import OpenMenu from "./components/openMenu/OpenMenu";
 
@@ -11,8 +12,9 @@ function App() {
 
   return (
     <div className="app" style={{ display: "flex" }}>
-      <About />
-      {exit ? <Menu handleExitToggle={handleExitToggle}/> : <OpenMenu handleExitToggle={handleExitToggle}/>}
+      {/* <About /> */}
+      <FullArticle/>
+      {exit ? <OpenMenu handleExitToggle={handleExitToggle} /> : <Menu handleExitToggle={handleExitToggle}/>}
     </div>
   );
 }
