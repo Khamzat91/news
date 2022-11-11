@@ -1,4 +1,5 @@
 import React from "react";
+import './index.scss';
 
 const Comments = () => {
   return (
@@ -21,10 +22,10 @@ const Comments = () => {
           <div className="comments__inner-form__title">
             Добавить комментарий
           </div>
-          <label>
-            <input type="text" />
+          <label className="comments__inner-form__label">
+            <textarea type="text" />
+            <button className="comments__inner-form__btn">Отправить</button>
           </label>
-          <button>Отправить</button>
         </div>
       </div>
     </div>

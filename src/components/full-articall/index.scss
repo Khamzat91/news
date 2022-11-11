@@ -5,9 +5,18 @@
   width: 100%;
   padding: 0 0 64px;
   margin: 0 auto;
-  display: flex;
+   display: flex;
+  &__left{
+    max-width: 720px;
+    width: 100%;
+    padding-top: 37px;
+    padding-left: 72px;
+    padding-right: 58px;
+  }
   &__image {
     position: relative;
+  }
+  &__box{
     &-date {
       display: flex;
       align-items: center;
@@ -39,14 +48,10 @@
   &__inner {
     position: absolute;
     top: 130px;
-    left: 72px;
-    right: 58px;
-  }
-  &__description {
     max-width: 584px;
     width: 100%;
-    margin-top: 37px;
-    margin-left: 72px;
+  }
+  &__description {
     color: #202020;
     padding-left: 26px;
     border-left: 4px solid #13315E;
