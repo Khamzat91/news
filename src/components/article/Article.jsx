@@ -17,8 +17,9 @@ const handleInputSearch = () => {
 
   return (
     <div className="article">
-      {inputSearch ? <HeaderTop handleInputSearch={handleInputSearch}/>
-     : <HeaderTopInput handleInputSearch={handleInputSearch}/>}
+      {inputSearch ? <HeaderTopInput handleInputSearch={handleInputSearch}/> 
+      : <HeaderTop handleInputSearch={handleInputSearch}/>
+     }
       <div className="article__inner">
       <div className="article__info">
         <div className="article__info-title">{title}</div>
