@@ -7,7 +7,9 @@
     padding: 27px 30px;
     margin-right: 26px;
     display: flex;
+    &.active{
     border-left: 4px solid #13315E;
+  }
   }
   &__info {
     &-title {

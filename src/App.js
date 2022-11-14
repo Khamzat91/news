@@ -3,6 +3,7 @@ import About from "./components/about/About";
 import FullArticle from "./components/full-articall/FullArticle";
 import Menu from "./components/menu/Menu";
 import OpenMenu from "./components/openMenu/OpenMenu";
+import Profile from "./components/profile/Profile";
 
 function App() {
   const [exit, setExit] = React.useState(false);
@@ -13,7 +14,8 @@ function App() {
   return (
     <div className="app" style={{ display: "flex" }}>
       {/* <About /> */}
-      <FullArticle/>
+      {/* <FullArticle/> */}
+      <Profile/>
       {exit ? <OpenMenu handleExitToggle={handleExitToggle} /> : <Menu handleExitToggle={handleExitToggle}/>}
     </div>
   );

@@ -1,0 +1,48 @@
+@import "../../scss/vars";
+
+.profile {
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  margin-top: 176px;
+  &__inner {
+    &-name {
+      font-size: 58px;
+      line-height: 52px;
+      color: #0058d9;
+      @include f800;
+      margin-bottom: 12px;
+    }
+    &-datereg {
+      color: $bg;
+      font-size: 18px;
+      line-height: 52px;
+      @include f500;
+      margin-bottom: 56px;
+      span {
+        @include f700;
+      }
+    }
+    &-btn {
+      font-size: 14px;
+      line-height: 17px;
+      color: $bg;
+      display: flex;
+      cursor: pointer;
+      &__article {
+        margin-right: 14px;
+        &.active {
+          color: #36b55a;
+          @include f700;
+        }
+      }
+      &__comments {
+        &.active {
+          color: #36b55a;
+          @include f700;
+        }
+      }
+    }
+  }
+}

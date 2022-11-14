@@ -20,7 +20,7 @@ const handleInputSearch = () => {
       {inputSearch ? <HeaderTopInput handleInputSearch={handleInputSearch}/> 
       : <HeaderTop handleInputSearch={handleInputSearch}/>
      }
-      <div className="article__inner">
+      <div className="article__inner active">
       <div className="article__info">
         <div className="article__info-title">{title}</div>
         <div className="article__info-text">{text}</div>
