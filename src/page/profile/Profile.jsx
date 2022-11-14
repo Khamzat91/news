@@ -2,9 +2,27 @@ import React from "react";
 import "./index.scss";
 
 const Profile = () => {
-  const [color, setColor] = React.useState(false);
-  const handlerClickColor = () => {
-    setColor(!color);
+  const [activeTab, setActiveTab] = React.useState("articles");
+  const onClickArticleId = () => {
+    setActiveTab("articles");
+  };
+
+  const onClickCommentId = () => {
+    setActiveTab("comments");
+  };
+
+  const addClassNameArticle = () => {
+    return (
+      "profile__inner-btn__article " +
+      (activeTab === "articles" ? "active" : "")
+    );
+  };
+
+  const addClassNameComment = () => {
+    return (
+      "profile__inner-btn__comment " +
+      (activeTab === "comments" ? "active" : "")
+    );
   };
 
   return (
@@ -15,23 +33,14 @@ const Profile = () => {
           Дата регистрации: <span>12 августа 2019 в 08:06</span>
         </div>
         <div className="profile__inner-btn">
-          <div
-          onClick={handlerClickColor}
-            className={"profile__inner-btn__article " + (color ? "active" : "")}
-          >
+          <div onClick={onClickArticleId} className={addClassNameArticle()}>
             Статьи
           </div>
-          <div
-          onClick={handlerClickColor}
-            className={
-              "profile__inner-btn__comments " + (color ? "" : "active")
-            }
-          >
+          <div onClick={onClickCommentId} className={addClassNameComment()}>
             Комментарии
           </div>
         </div>
       </div>
-      
     </div>
   );
 };
