@@ -1,4 +1,6 @@
 import React from "react";
+import { Button, Form, Input } from 'antd';
+import Layout from "../layout/Layout";
 import "./index.scss";
 
 const Login = () => {
@@ -10,6 +12,7 @@ const Login = () => {
   };
 
   return (
+    <Layout>
     <div className="login">
       <Form
         name="basic"
@@ -18,9 +21,6 @@ const Login = () => {
         }}
         wrapperCol={{
           span: 16,
-        }}
-        initialValues={{
-          remember: true,
         }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
@@ -61,6 +61,7 @@ const Login = () => {
         </Form.Item>
       </Form>
     </div>
+    </Layout>
   );
 };
 

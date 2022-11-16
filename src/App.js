@@ -1,9 +1,12 @@
 import React from "react";
 import About from "./components/about/About";
 import FullArticle from "./components/full-articall/FullArticle";
+import { Route, Routes } from "react-router-dom";
 import Menu from "./components/menu/Menu";
+import Main from "./page/main/Main";
 import OpenMenu from "./components/openMenu/OpenMenu";
-import Profile from "./components/profile/Profile";
+import Profile from "./page/profile/Profile";
+import Login from "./components/login/Login";
 
 function App() {
   const [exit, setExit] = React.useState(false);
@@ -13,10 +16,19 @@ function App() {
 
   return (
     <div className="app" style={{ display: "flex" }}>
-      {/* <About /> */}
-      {/* <FullArticle/> */}
-      <Profile/>
-      {exit ? <OpenMenu handleExitToggle={handleExitToggle} /> : <Menu handleExitToggle={handleExitToggle}/>}
+      <Routes>
+        <Route path="/about" element={<Main />}>
+          <Route path="index" element={<About />} />
+          <Route path="/fullarticle" element={<FullArticle />} />
+        </Route>
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+      {exit ? (
+        <OpenMenu handleExitToggle={handleExitToggle} />
+      ) : (
+        <Menu handleExitToggle={handleExitToggle} />
+      )}
     </div>
   );
 }
