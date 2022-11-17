@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="app" style={{ display: "flex" }}>
       <Routes>
-        <Route path="/about" element={<Main />}>
+        <Route path="/" element={<Main />}>
           <Route path="index" element={<About />} />
           <Route path="/fullarticle" element={<FullArticle />} />
         </Route>

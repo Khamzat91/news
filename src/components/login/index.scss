@@ -1,1 +1,69 @@
 @import "../../scss/vars";
+
+.login {
+  max-width: 446px;
+  width: 100%;
+  background-color: #fff;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 12px;
+  &__top {
+    margin-top: 30px;
+    margin-bottom: 39px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__topbtn {
+    cursor: pointer;
+  }
+  &__title {
+    color: #373737;
+    font-size: 26px;
+    line-height: 32px;
+    @include f700;
+  }
+  .ant-form-item-required {
+    font-size: 13px;
+    line-height: 21px;
+    color: #373737;
+    @include f600;
+    margin-bottom: 8px;
+  }
+  .ant-input {
+    max-width: 366px;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    margin-bottom: 12px;
+  }
+  .ant-form-item-explain-error {
+    font-size: 13px;
+    line-height: 21px;
+    color: brown;
+  }
+  .ant-input-affix-wrapper.ant-input-password {
+    display: flex;
+    position: relative;
+  }
+  .ant-input-suffix {
+    position: absolute;
+    right: 17px;
+    top: 9px;
+  }
+  .ant-btn.ant-btn-default {
+    margin-top: 23px;
+    width: 100%;
+    background: #ffdf36;
+    border-radius: 12px;
+    color: #68572d;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    border: none;
+    padding: 15px 0;
+    @include f600;
+    margin-bottom: 45px;
+    cursor: pointer;
+  }
+}
