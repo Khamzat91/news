@@ -1,6 +1,7 @@
 import React from "react";
 import pupkin from "../../images/pupkin.png";
 import Article from "../article/Article";
+import Articles from "../articles/Articles";
 import "./index.scss";
 
 
@@ -27,7 +28,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <Article/>
+      <Articles/>
     </div>
   );
 };

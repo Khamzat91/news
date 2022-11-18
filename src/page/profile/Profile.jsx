@@ -1,4 +1,5 @@
 import React from "react";
+import Article from "../../components/article/Article";
 import "./index.scss";
 
 const Profile = () => {
@@ -41,6 +42,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      <Article/>
     </div>
   );
 };

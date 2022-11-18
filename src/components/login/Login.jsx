@@ -61,7 +61,7 @@ const Login = () => {
             ]}
           >
             <Input.Password
-              iconRender={(visible) => (visible ? <EyeOpen /> : <EyeClose />)}
+              iconRender={(visible) => visible ? <EyeOpen /> : <EyeClose />}
             />
           </Form.Item>
           <Form.Item

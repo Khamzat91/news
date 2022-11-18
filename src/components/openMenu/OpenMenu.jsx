@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ReactComponent as Exit } from "../../images/content/exit.svg";
 import "./index.scss";
 
 const OpenMenu = ({handleExitToggle}) => {
+
+
+
   return (
     <div className="open-menu">
       <div className="open-menu__inner">
@@ -13,16 +17,16 @@ const OpenMenu = ({handleExitToggle}) => {
           </div>
         </div>
         <ul className="open-menu__inner-option">
-          <li>
-            <a href="#">Главная</a>
+          <li onClick={handleExitToggle}>
+            <Link to="/">Главная</Link>
           </li>
-          <li>
-            <a href="#">Мой профиль</a>
+          <li onClick={handleExitToggle}>
+          <Link to="/profile">Мой профиль</Link>
           </li>
-          <li>
+          <li onClick={handleExitToggle}>
             <a href="#">Создать запись</a>
           </li>
-          <li>
+          <li onClick={handleExitToggle}>
             <a href="#">Выйти</a>
           </li>
         </ul>

@@ -6,7 +6,7 @@ import FullArticle from '../../components/full-articall/FullArticle';
 
 const Main = () => {
     return (
-        <div className='main'>
+        <div className='main container'>
             <Routes>
                 <Route path='/' element={<About/>}/>
                 <Route path='/fullarticle' element={<FullArticle/>}/>
