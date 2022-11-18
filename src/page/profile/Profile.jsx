@@ -1,4 +1,5 @@
 import React from "react";
+import HeaderTop from "../../components/header/headerTop/HeaderTop";
 import Article from "../../components/article/Article";
 import "./index.scss";
 
@@ -28,6 +29,7 @@ const Profile = () => {
 
   return (
     <div className="profile">
+      <HeaderTop/>
       <div className="profile__inner">
         <div className="profile__inner-name">Вася Пупкин</div>
         <div className="profile__inner-datereg">
@@ -41,8 +43,8 @@ const Profile = () => {
             Комментарии
           </div>
         </div>
-      </div>
       <Article/>
+      </div>
     </div>
   );
 };

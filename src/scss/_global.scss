@@ -33,3 +33,9 @@ ul{
 a{
   text-decoration: none;
 }
+
+.title{
+  color: #0a3465;
+  @include f600;
+  margin-bottom: 7px;
+}

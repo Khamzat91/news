@@ -3,6 +3,7 @@
 .article {
   max-width: 620px;
   width: 100%;
+  cursor: pointer;
   &__inner {
     padding: 27px 0 27px 30px;
     display: flex;

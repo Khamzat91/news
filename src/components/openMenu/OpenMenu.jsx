@@ -24,7 +24,7 @@ const OpenMenu = ({handleExitToggle}) => {
           <Link to="/profile">Мой профиль</Link>
           </li>
           <li onClick={handleExitToggle}>
-            <a href="#">Создать запись</a>
+            <Link to="/createarticle">Создать запись</Link>
           </li>
           <li onClick={handleExitToggle}>
             <a href="#">Выйти</a>

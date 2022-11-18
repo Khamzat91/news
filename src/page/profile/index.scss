@@ -1,12 +1,13 @@
 @import "../../scss/vars";
 
 .profile {
-  max-width: 560px;
-  width: 100%;
   margin: 0 auto;
-  background-color: #fff;
-  margin-top: 176px;
+
   &__inner {
+    max-width: 560px;
+    width: 100%;
+    background-color: #fff;
+    margin-top: 176px;
     &-name {
       font-size: 58px;
       line-height: 52px;

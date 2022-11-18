@@ -2,24 +2,40 @@ import React from "react";
 import logo from "../../../images/logo.png";
 import { ReactComponent as Search } from "../../../images/content/search.svg";
 import { ReactComponent as User } from "../../../images/content/user.svg";
+import { ReactComponent as Edit } from "../../../images/content/edit.svg";
+import { ReactComponent as Logout } from "../../../images/content/logout.svg";
 import "./index.scss";
 import { useNavigate } from "react-router-dom";
 
-const HeaderTop = ({handleInputSearch}) => {
-  const navigate = useNavigate()
+const HeaderTop = ({ handleInputSearch }) => {
+  const isAuth = React.useState(false);
+  const navigate = useNavigate();
 
   const onClickLinkLogin = () => {
-    navigate("/login")
-  }
+    navigate("/login");
+  };
   return (
     <div className="header-top">
       <div className="header-top__inner">
         <a className="header-top__inner-logo" href="#">
-           <img src={logo} alt="" />
+          <img src={logo} alt="" />
         </a>
-        <div className="header-top__inner-box">
-            <Search onClick={handleInputSearch} className="header-top__inner-box__search"/>
-            <User onClick={onClickLinkLogin} className="header-top__inner-box__user"/>
+        <div className="header-top__inner-icons">
+          <Search
+            onClick={handleInputSearch}
+            className="header-top__inner-icons__search"
+          />
+          {isAuth ? (
+            <>
+              <Edit className="header-top__inner-icons__edit"/>
+              <Logout className="header-top__inner-icons__logout"/>
+            </>
+          ) : (
+            <User
+              onClick={onClickLinkLogin}
+              className="header-top__inner-icons__user"
+            />
+          )}
         </div>
       </div>
     </div>
