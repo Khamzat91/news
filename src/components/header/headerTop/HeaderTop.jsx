@@ -5,7 +5,7 @@ import { ReactComponent as User } from "../../../images/content/user.svg";
 import { ReactComponent as Edit } from "../../../images/content/edit.svg";
 import { ReactComponent as Logout } from "../../../images/content/logout.svg";
 import "./index.scss";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const HeaderTop = ({ handleInputSearch }) => {
   const isAuth = React.useState(false);
@@ -27,7 +27,7 @@ const HeaderTop = ({ handleInputSearch }) => {
           />
           {isAuth ? (
             <>
-              <Edit className="header-top__inner-icons__edit"/>
+             <Link to="/editarticle"><Edit className="header-top__inner-icons__edit"/></Link>
               <Logout className="header-top__inner-icons__logout"/>
             </>
           ) : (

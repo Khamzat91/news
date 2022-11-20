@@ -4,6 +4,7 @@ import About from '../../components/about/About';
 import Article from '../../components/article/Article';
 import Articles from '../../components/articles/Articles';
 import CreateArticle from '../../components/createArticle/CreateArticle';
+import EditArticle from '../../components/editArticle/EditArticle';
 import FullArticle from '../../components/full-articall/FullArticle';
 import "./index.scss";
 
@@ -13,6 +14,7 @@ const Main = () => {
             <Routes>
                 <Route path='/' element={<About/>}/>
                 <Route path='/createarticle' element={<CreateArticle/>}/>
+                <Route path='/editarticle' element={<EditArticle/>}/>
                 <Route path='/fullarticle' element={<FullArticle/>}/>
             </Routes>
             <Articles/>

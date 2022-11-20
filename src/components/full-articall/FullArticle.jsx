@@ -1,7 +1,6 @@
 import React from "react";
 import { ReactComponent as Fullview } from "../../images/content/fullview.svg";
 import fullImg from "../../images/fullImg.png";
-import Article from "../article/Article";
 import Comments from "../comments/Comments";
 import "./index.scss";
 
@@ -45,7 +44,6 @@ const FullArticle = () => {
       <Comments/>
         </div>
       </div>
-      <Article />
     </div>
   );
 };

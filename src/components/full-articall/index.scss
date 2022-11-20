@@ -1,11 +1,10 @@
 @import "../../scss/vars";
 
 .full-article {
-  max-width: 1440px;
-  width: 100%;
   padding: 0 0 64px;
   margin: 0 auto;
    display: flex;
+ 
   &__left{
     max-width: 720px;
     width: 100%;

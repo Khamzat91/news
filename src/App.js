@@ -8,6 +8,7 @@ import OpenMenu from "./components/openMenu/OpenMenu";
 import Profile from "./page/profile/Profile";
 import Login from "./components/login/Login";
 import CreateArticle from "./components/createArticle/CreateArticle";
+import EditArticle from "./components/editArticle/EditArticle";
 
 function App() {
   const [exit, setExit] = React.useState(false);
@@ -20,7 +21,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />}>
           <Route path="index" element={<About />} />
-          <Route path="createarticle" element={<CreateArticle/>}/>
+          <Route path="/createarticle" element={<CreateArticle/>}/>
+          <Route path="/editarticle" element={<EditArticle/>}/>
           <Route path="/fullarticle" element={<FullArticle />} />
         </Route>
         <Route path="/profile" element={<Profile />} />
