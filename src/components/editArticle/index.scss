@@ -1,2 +1,116 @@
 @import "../../scss/vars";
 
+.edit-article {
+  &__title {
+    input {
+      color: #706262;
+      margin-top: 68px;
+      margin-bottom: 25px;
+      @include f800;
+      border: none;
+      outline: none;
+      font-size: 42px;
+      line-height: 52px;
+      padding: 10px;
+      max-width: 602px;
+      width: 100%;
+      &::placeholder {
+        color: #d7d7d7;
+      }
+    }
+  }
+  &__inner {
+    padding-bottom: 170px;
+    &-titleinp {
+      input {
+        max-width: 602px;
+        width: 100%;
+        padding: 14px 18px 52px;
+        border: none;
+        outline: none;
+        margin-bottom: 30px;
+        background: #ffffff;
+        border: 1px solid #eceef1;
+        border-radius: 10px;
+        &::placeholder {
+          color: #0a3465;
+        }
+      }
+    }
+    &-descriptionarea {
+      textarea {
+        height: 546px;
+        max-width: 602px;
+        width: 100%;
+        margin-bottom: 26px;
+        padding: 10px;
+        resize: none;
+        outline: none;
+        border: 1px solid #dadcdd;
+        border-radius: 6px;
+      }
+    }
+    &-btn {
+      display: flex;
+      justify-content: space-between;
+      color: #68572d;
+      line-height: 19px;
+      align-items: center;
+      @include f600;
+      &__delete {
+        cursor: pointer;
+        max-width: 127px;
+        width: 100%;
+        padding: 13px 30px;
+        text-align: center;
+        border-radius: 12px;
+        background-color: #fff;
+      }
+      &__hold{
+        max-width: 160px;
+        width: 100%;
+        background-color: #FFDF36;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        text-align: center;
+        border-radius: 12px;
+        cursor: pointer;
+      }
+    }
+  }
+  .input__wrapper {
+    max-width: 150px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+  }
+
+  .input__file {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+  }
+
+  .input__file-icon-wrapper {
+    height: 18px;
+    width: 18px;
+    margin-right: 9px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .input__file-button {
+    padding: 12px 19px 14px;
+    background: #6fcf97;
+    color: #fff;
+    font-size: 16px;
+    line-height: 19px;
+    @include f600;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+}

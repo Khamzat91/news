@@ -1,10 +1,11 @@
 import React from "react";
+import load from "../../images/content/load.svg";
 import "./index.scss";
 
 const EditArticle = () => {
   return (
     <div className="edit-article">
-      <label className="edit-article">
+      <label className="edit-article__title">
         <input type="text" placeholder="Введите заголовок..." />
       </label>
       <div className="edit-article__inner">
