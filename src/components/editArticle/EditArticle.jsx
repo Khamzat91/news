@@ -44,6 +44,7 @@ const EditArticle = () => {
         <div className="edit-article__inner-btn">
         <div className="edit-article__inner-btn__delete">Удалить</div>
         <div className="edit-article__inner-btn__hold">Сохранить</div>
+        
         </div>
       </div>
     </div>
