@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import articlePost from "../../images/articlePost.png";
 import { ReactComponent as Viewing } from "../../images/content/viewing.svg";
 import "./index.scss";
@@ -7,6 +8,7 @@ const Article = ({
   title = "Какой-то очень интересный заголовок",
   text = " На работе потребовалось запилить задачу для автоматического определения города при совершении заказа",
 }) => {
+  const navigate = useNavigate()
 const [inputSearchToggle, setInputSearchToggle] = React.useState(false);
 
 
@@ -15,9 +17,13 @@ const handleInputSearch = () => {
     setInputSearchToggle(!inputSearchToggle)
 }
 
+const onClickNavFullarticle = () => {
+  navigate('/fullarticle')
+}
+
   return (
-    <div className="article">
-      <div className="article__inner active">
+    <div onClick={onClickNavFullarticle} className="article active">
+      <div className="article__inner">
       <div className="article__info">
         <div className="article__info-title">{title}</div>
         <div className="article__info-text">{text}</div>

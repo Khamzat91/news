@@ -27,7 +27,7 @@ const HeaderTop = ({ handleInputSearch }) => {
           />
           {isAuth ? (
             <>
-             <Link to="/editarticle"><Edit className="header-top__inner-icons__edit"/></Link>
+             <Link to="/editarticle"><Edit title="Написать" className="header-top__inner-icons__edit"/></Link>
               <Logout className="header-top__inner-icons__logout"/>
             </>
           ) : (
