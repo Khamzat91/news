@@ -25,7 +25,7 @@ const HeaderTop = ({ handleInputSearch }) => {
             onClick={handleInputSearch}
             className="header-top__inner-icons__search"
           />
-          {isAuth ? (
+          {!isAuth ? (
             <>
              <Link to="/editarticle"><Edit title="Написать" className="header-top__inner-icons__edit"/></Link>
               <Logout className="header-top__inner-icons__logout"/>

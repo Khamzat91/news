@@ -71,6 +71,9 @@ const Login = () => {
             }}
           >
             <Button htmlType="submit">Войти</Button>
+           <Link to="/registration">
+           <button className="login_regist">Зарегистрироваться</button>
+           </Link> 
           </Form.Item>
         </Form>
       </div>

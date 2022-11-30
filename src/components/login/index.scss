@@ -63,6 +63,20 @@
     border: none;
     padding: 15px 0;
     @include f600;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  &_regist{
+    width: 100%;
+    background: #4dbcc0;
+    border-radius: 12px;
+    color: #68572d;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    border: none;
+    padding: 15px 0;
+    @include f600;
     margin-bottom: 45px;
     cursor: pointer;
   }

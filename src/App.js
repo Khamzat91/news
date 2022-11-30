@@ -9,6 +9,7 @@ import Profile from "./page/profile/Profile";
 import Login from "./components/login/Login";
 import CreateArticle from "./components/createArticle/CreateArticle";
 import EditArticle from "./components/editArticle/EditArticle";
+import Registration from "./components/registration/Registration";
 
 function App() {
   const [exit, setExit] = React.useState(false);
@@ -27,6 +28,7 @@ function App() {
         </Route>
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Registration/>}/>
       </Routes>
       {exit ? (
         <OpenMenu handleExitToggle={handleExitToggle} />
