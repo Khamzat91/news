@@ -2,7 +2,10 @@ import React from "react";
 import Layout from "../layout/Layout";
 import registrationBtn from "../../images/content/registrationBtn.svg";
 import { Button, Checkbox, Form, Input } from "antd";
+import { ReactComponent as EyeClose } from "../../images/content/eyeClose.svg";
+import { ReactComponent as EyeOpen } from "../../images/content/eyeOpen.svg";
 import "./index.scss";
+import { Link } from "react-router-dom";
 
 const Registration = () => {
   const onFinish = (values) => {
@@ -16,11 +19,13 @@ const Registration = () => {
       <div className="registration">
         <div className="registration__top">
           <div className="registration__top-title">Регистрация</div>
-          <img
-            src={registrationBtn}
-            alt=""
-            className="registration__top-exit"
-          />
+          <Link to="/">
+            <img
+              src={registrationBtn}
+              alt=""
+              className="registration__top-exit"
+            />
+          </Link>
         </div>
         <div className="registration__inner">
           <Form
@@ -39,12 +44,16 @@ const Registration = () => {
             autoComplete="off"
           >
             <Form.Item
+              name="E-mail"
               label="Email"
-              name="email"
               rules={[
                 {
+                  type: 'email',
+                  message: 'Не правильно ввели E-mail!',
+                },
+                {
                   required: true,
-                  message: "Не правильно ввели email!",
+                  message: 'Пожалуйста, введите ваш E-mail!',
                 },
               ]}
             >
@@ -53,11 +62,11 @@ const Registration = () => {
 
             <Form.Item
               label="Имя и фамилия"
-              name="name"
+              name="username"
               rules={[
                 {
                   required: true,
-                  message: "Не правильно ввели имя и фамилию!",
+                  message: 'Пожалуйста, введите ваше имя и фамилию!',
                 },
               ]}
             >
@@ -65,16 +74,28 @@ const Registration = () => {
             </Form.Item>
 
             <Form.Item
-              label="Пароль"
-              name="password"
-              rules={[
-                {
-                  required: true,
-                  message: "Не правильно ввели пароль!",
-                },
-              ]}
+             name="password"
+             label="Пароль"
+             dependencies={['password']}
+             hasFeedback
+             rules={[
+               {
+                 required: true,
+                 message: 'Пожалуйста, введите свой пароль!',
+               },
+               ({ getFieldValue }) => ({
+                 validator(_, value) {
+                   if (!value || getFieldValue('password') === value) {
+                     return Promise.resolve();
+                   }
+                   return Promise.reject(new Error('The two passwords that you entered do not match!'));
+                 },
+               }),
+             ]}
             >
-              <Input.Password />
+              <Input.Password
+                iconRender={(visible) => (visible ? <EyeOpen /> : <EyeClose />)}
+              />
             </Form.Item>
 
             <Form.Item
@@ -84,7 +105,7 @@ const Registration = () => {
               }}
             >
               <Button type="primary" htmlType="submit">
-              Зарегистрироваться
+                Зарегистрироваться
               </Button>
             </Form.Item>
           </Form>

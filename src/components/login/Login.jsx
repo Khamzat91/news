@@ -11,9 +11,7 @@ const Login = () => {
   const onFinish = (values) => {
     console.log("Success:", values);
   };
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
+
 
   return (
     <Layout>
@@ -26,40 +24,48 @@ const Login = () => {
         </div>
 
         <Form
-          name="basic"
-          labelCol={{
-            span: 8,
-          }}
-          wrapperCol={{
-            span: 16,
-          }}
+         name="normal_login"
+         className="login-form"
           onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete="off"
+         
         >
           <Form.Item
+            name="email"
             label="Email"
-            name="username"
             rules={[
               {
+                type: 'email',
+                message: 'Не правильно ввели E-mail!',
+              },
+              {
                 required: true,
-                message: "Please input your Email!",
+                message: 'Пожалуйста, введите ваш E-mail!',
               },
             ]}
-          >
+            >
             <Input />
           </Form.Item>
 
           <Form.Item
-            label="Пароль"
-            name="password"
-            rules={[
-              {
-                required: true,
-                message: "Please input your password!",
-              },
-            ]}
-          >
+             name="password"
+             label="Пароль"
+             dependencies={['password']}
+             hasFeedback
+             rules={[
+               {
+                 required: true,
+                 message: 'Пожалуйста, введите свой пароль!',
+               },
+               ({ getFieldValue }) => ({
+                 validator(_, value) {
+                   if (!value || getFieldValue('password') === value) {
+                     return Promise.resolve();
+                   }
+                   return Promise.reject(new Error('The two passwords that you entered do not match!'));
+                 },
+               }),
+             ]}
+           >
             <Input.Password
               iconRender={(visible) => visible ? <EyeOpen /> : <EyeClose />}
             />

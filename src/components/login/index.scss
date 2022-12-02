@@ -80,4 +80,8 @@
     margin-bottom: 45px;
     cursor: pointer;
   }
+  .ant-form-item-feedback-icon.ant-form-item-feedback-icon-success,
+  .ant-form-item-feedback-icon.ant-form-item-feedback-icon-error{
+    display: none;
+  }
 }

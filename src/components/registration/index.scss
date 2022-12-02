@@ -21,11 +21,50 @@
       cursor: pointer;
     }
   }
-  .ant-form-item-required{
+  .ant-form-item-required {
     font-size: 13px;
     line-height: 19px;
     @include f600;
     color: #373737;
     margin-bottom: 8px;
+  }
+  .ant-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+    outline: none;
+  }
+  .ant-form-item-control-input-content {
+    position: relative;
+  }
+  .ant-input-suffix {
+    position: absolute;
+    right: 17px;
+    top: 12px;
+  }
+  .ant-form-item {
+    margin-bottom: 20px;
+  }
+
+  .ant-btn.ant-btn-primary {
+    border: none;
+    background-color: #ffdf36;
+    border-radius: 12px;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    color: #68572D;
+    line-height: 26px;
+    @include f600;
+    cursor: pointer;
+  }
+  .ant-form-item-explain-error{
+    font-size: 13px;
+    color: #f50909;
+  }
+  .ant-form-item-feedback-icon.ant-form-item-feedback-icon-success,
+  .ant-form-item-feedback-icon.ant-form-item-feedback-icon-error{
+    display: none;
   }
 }
