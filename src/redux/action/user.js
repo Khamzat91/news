@@ -5,3 +5,4 @@ export const setIsAuth = (isAuth) => ({
 type: IS_AUTH,
 payload: isAuth
 })
+

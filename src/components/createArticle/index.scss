@@ -41,7 +41,7 @@
         }
       }
     }
-  }
+  
 
   .input__wrapper {
     max-width: 150px;
@@ -51,10 +51,13 @@
   }
 
   .input__file {
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-  }
+    overflow: hidden;
+    display: none;
+    span{
+     width: 100%;
+    }
+}
+  
 
   .input__file-icon-wrapper {
     height: 18px;
@@ -106,4 +109,5 @@
     padding: 13px;
     cursor: pointer;
   }
+}
 }
