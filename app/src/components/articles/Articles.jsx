@@ -6,6 +6,7 @@ import "./index.scss";
 
 const Articles = () => {
   const [inputSearchToggle, setInputSearchToggle] = React.useState(false);
+  
 
   const handleInputSearch = () => {
     setInputSearchToggle(!inputSearchToggle);

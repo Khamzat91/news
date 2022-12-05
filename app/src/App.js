@@ -10,12 +10,21 @@ import Login from "./components/login/Login";
 import CreateArticle from "./components/createArticle/CreateArticle";
 import EditArticle from "./components/editArticle/EditArticle";
 import Registration from "./components/registration/Registration";
+import { useDispatch } from "react-redux";
+import { setIsAuth } from "./redux/action/user";
 
 function App() {
   const [exit, setExit] = React.useState(false);
+  const dispatch = useDispatch()
   const handleExitToggle = () => {
     setExit(!exit);
   };
+
+  React.useEffect(() => {
+    if (localStorage.getItem('user')) {
+      dispatch(setIsAuth(true))
+    }
+  }, [])
 
   return (
     <div className="app" style={{ display: "flex" }}>

@@ -7,9 +7,10 @@ type: IS_AUTH,
 payload: isAuth
 })
 
-export const setUserData = (data, url) => async (dispatch) => {
-   const response = await axios.post(`http://localhost:5656/auth/register`, data)
-   dispatch(setIsAuth())
-   console.log(response.data)
+export const setUserData = (data, url, navigate) => async (dispatch) => {
+   const response = await axios.post(`http://localhost:5656/auth/${url}`, data)
+   localStorage.setItem('user', JSON.stringify(response.data))
+   dispatch(setIsAuth(true))
+   navigate('/profile')
 }
 

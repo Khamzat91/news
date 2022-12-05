@@ -3,7 +3,7 @@ import { Button, Form, Input } from "antd";
 import Layout from "../layout/Layout";
 import { ReactComponent as LoginBtn } from "../../images/content/loginBtn.svg";
 import { ReactComponent as EyeClose } from "../../images/content/eyeClose.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { ReactComponent as EyeOpen } from "../../images/content/eyeOpen.svg";
 import { setUserData } from "../../redux/action/user";
@@ -12,7 +12,8 @@ import "./index.scss";
 const Login = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -27,8 +28,7 @@ const Login = () => {
 
   const onSubmitLogin = () => {
     const data = {email, password}
-    dispatch(setUserData(data, 'login'))
-    
+    dispatch(setUserData(data, 'login', navigate))
   };
 
   return (
@@ -41,7 +41,7 @@ const Login = () => {
           </Link>
         </div>
 
-        <Form name="normal_login" className="login-form" onFinish={onFinish}>
+        <Form name="normal_login" className="login-form" onFinish={onSubmitLogin}>
           <Form.Item
             name="email"
             label="Email"
@@ -95,7 +95,7 @@ const Login = () => {
               span: 16,
             }}
           >
-            <Button onClick={onSubmitLogin} htmlType="submit">Войти</Button>
+            <Button htmlType="submit">Войти</Button>
             <Link to="/registration">
               <button className="login_regist">Зарегистрироваться</button>
             </Link>

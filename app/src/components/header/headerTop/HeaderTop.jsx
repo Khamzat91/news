@@ -6,16 +6,17 @@ import { ReactComponent as User } from "../../../images/content/user.svg";
 import { ReactComponent as Edit } from "../../../images/content/edit.svg";
 import { ReactComponent as Logout } from "../../../images/content/logout.svg";
 import { Link, useNavigate } from "react-router-dom";
-import "./index.scss";
 import { setIsAuth } from "../../../redux/action/user";
+import "./index.scss";
 
 const HeaderTop = ({ handleInputSearch }) => {
   const isAuth = useSelector((state) => state.user.isAuth);
   const dispatch = useDispatch()
   const navigate = useNavigate();
 
-  const handleLogoutIsAuth = () => {
-    dispatch(setIsAuth(isAuth))
+  const removeLogoutIsAuth = () => {
+    localStorage.removeItem('user')
+    dispatch(setIsAuth(!isAuth))
   }
 
   const onClickLinkLogin = () => {
@@ -41,7 +42,7 @@ const HeaderTop = ({ handleInputSearch }) => {
                   className="header-top__inner-icons__edit"
                 />
               </Link>
-              <Logout onClick={handleLogoutIsAuth} className="header-top__inner-icons__logout" />
+              <Logout onClick={removeLogoutIsAuth} className="header-top__inner-icons__logout" />
             </>
           ) : (
             <User
