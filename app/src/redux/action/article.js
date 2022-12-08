@@ -18,3 +18,15 @@ const token = await JSON.parse(localStorage.getItem('user')).token
 await axios.post(`http://localhost:5656/posts`, data, {headers: {Authorization: token}})
 }
 
+
+export const showArticle = (id) => async (dispatch) => {
+const response = await axios.get(`http://localhost:5656/posts${id}`)
+dispatch(setShowArticle(response.data))
+console.log(response.data);
+}
+
+// export const getArticle = () => async (dispatch) => {
+// const response = await axios.get(`http://localhost:5656/posts`)
+// dispatch(setArticle(response.data.items))
+// console.log(response.data.items);
+// }

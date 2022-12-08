@@ -44,10 +44,12 @@
   
 
   .input__wrapper {
-    max-width: 150px;
     width: 100%;
     position: relative;
+    margin: 15px 0 90px;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
   }
 
   .input__file {

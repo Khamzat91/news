@@ -19,19 +19,19 @@ const EditArticle = () => {
           <div className="edit-article__inner-link__title title">
             Ссылка на изображение:
           </div>
-          <div class="input__wrapper">
+          <div className="input__wrapper">
             <input
               name="file"
               type="file"
               id="input__file"
-              class="input input__file"
+              className="input input__file"
               multiple
             />
-            <label for="input__file" class="input__file-button">
-              <span class="input__file-icon-wrapper">
-                <img class="input__file-icon" src={load} alt="" width="25" />
+            <label htmlFor="input__file" className="input__file-button">
+              <span className="input__file-icon-wrapper">
+                <img className="input__file-icon" src={load} alt="" width="25" />
               </span>
-              <span class="input__file-button-text">Загрузить</span>
+              <span className="input__file-button-text">Загрузить</span>
             </label>
           </div>
         </div>

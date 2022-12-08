@@ -1,37 +1,74 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import load from "../../images/content/load.svg";
+import { createArticle } from "../../redux/action/article";
 import "./index.scss";
 
 const CreateArticle = () => {
+  const [data, setData] = React.useState({
+    title: "",
+    subtitle: "",
+    file: "",
+    text: "",
+  });
+  const dispatch = useDispatch();
+
+  const handleChangeData = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = async () => {
+   await dispatch(createArticle(data));
+    setData({
+      title: "",
+      subtitle: "",
+      file: "",
+      text: "",
+    });
+  };
+
   return (
     <div className="create-article">
       <label className="create-article__title">
-        <input type="text" placeholder="Введите заголовок..."/>
+        <input
+          onChange={handleChangeData}
+          value={data.title}
+          name="title"
+          type="text"
+          placeholder="Введите заголовок..."
+        />
       </label>
       <div className="create-article__inner">
         <div className="create-article__inner-shortpicture title">
           Короткое описание
         </div>
         <label className="create-article__inner-titleinp">
-          <input type="text" />
+          <input
+            onChange={handleChangeData}
+            value={data.subtitle}
+            name="subtitle"
+            type="text"
+          />
         </label>
         <div className="create-article__inner-link">
           <div className="create-article__inner-link__title title">
             Ссылка на изображение:
           </div>
-          <div class="input__wrapper">
+          <div className="input__wrapper">
             <input
+              onChange={handleChangeData}
+              value={data.file}
               name="file"
               type="file"
               id="input__file"
-              class="input input__file"
+              className="input input__file"
               multiple
             />
-            <label for="input__file" class="input__file-button">
-              <span class="input__file-icon-wrapper">
-                <img class="input__file-icon" src={load} alt="" width="25" />
+            <label htmlFor="input__file" className="input__file-button">
+              <span className="input__file-icon-wrapper">
+                <img className="input__file-icon" src={load} alt="" width="25" />
               </span>
-              <span class="input__file-button-text">Загрузить</span>
+              <span className="input__file-button-text">Загрузить</span>
             </label>
           </div>
         </div>
@@ -39,9 +76,9 @@ const CreateArticle = () => {
           Полное описание
         </div>
         <label className="create-article__inner-descriptionarea">
-          <textarea type="text" />
+          <textarea onChange={handleChangeData} value={data.text} name="text" type="text" />
         </label>
-        <div className="create-article__inner-btnpublish">Опубликовать</div>
+        <div onClick={onSubmit} className="create-article__inner-btnpublish">Опубликовать</div>
       </div>
     </div>
   );
