@@ -1,15 +1,15 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import load from "../../images/content/load.svg";
-import { createArticle } from "../../redux/action/article";
+import { createArticle } from "../../redux/action/articles";
 import "./index.scss";
 
 const CreateArticle = () => {
   const [data, setData] = React.useState({
     title: "",
-    subtitle: "",
-    file: "",
     text: "",
+    file: "",
+    description: "",
   });
   const dispatch = useDispatch();
 
@@ -21,9 +21,9 @@ const CreateArticle = () => {
    await dispatch(createArticle(data));
     setData({
       title: "",
-      subtitle: "",
-      file: "",
       text: "",
+      file: "",
+      description: "",
     });
   };
 
@@ -45,8 +45,8 @@ const CreateArticle = () => {
         <label className="create-article__inner-titleinp">
           <input
             onChange={handleChangeData}
-            value={data.subtitle}
-            name="subtitle"
+            value={data.text}
+            name="text"
             type="text"
           />
         </label>
@@ -76,7 +76,7 @@ const CreateArticle = () => {
           Полное описание
         </div>
         <label className="create-article__inner-descriptionarea">
-          <textarea onChange={handleChangeData} value={data.text} name="text" type="text" />
+          <textarea onChange={handleChangeData} value={data.description} name="description" type="text" />
         </label>
         <div onClick={onSubmit} className="create-article__inner-btnpublish">Опубликовать</div>
       </div>

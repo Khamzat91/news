@@ -20,9 +20,8 @@ await axios.post(`http://localhost:5656/posts`, data, {headers: {Authorization: 
 
 
 export const showArticle = (id) => async (dispatch) => {
-const response = await axios.get(`http://localhost:5656/posts${id}`)
+const response = await axios.get(`http://localhost:5656/posts/${id}`)
 dispatch(setShowArticle(response.data))
-console.log(response.data);
 }
 
 // export const getArticle = () => async (dispatch) => {

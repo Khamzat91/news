@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getArticle } from "../../redux/action/article";
+import { getArticle } from "../../redux/action/articles";
 import Article from "../article/Article";
 import HeaderTop from "../header/headerTop/HeaderTop";
 import HeaderTopInput from "../header/headertTopInp/HeaderTopInput";
@@ -8,10 +8,9 @@ import "./index.scss";
 
 const Articles = () => {
   const [inputSearchToggle, setInputSearchToggle] = React.useState(false);
-  const state = useSelector(state => state.article)
+  const articles = useSelector(state => state.articles.data)
   const dispatch = useDispatch()
-  console.log(state);
-
+console.log(articles.id);
   const handleInputSearch = () => {
     setInputSearchToggle(!inputSearchToggle);
     // if (!inputSearchToggle) {
@@ -27,7 +26,8 @@ const Articles = () => {
       ) : (
         <HeaderTop handleInputSearch={handleInputSearch} />
       )}
-        <Article/>
+{articles?.map((article) => <Article key={article._id}/>)}
+        
     </div>
   );
 };

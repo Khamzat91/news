@@ -5,7 +5,7 @@ const initialState = {
   article: null
 };
 
-export const article = (state = initialState, action) => {
+export const articles = (state = initialState, action) => {
   switch (action.payload) {
     case SET_ARTICLES: {
       return {...state,  data: action.payload}
