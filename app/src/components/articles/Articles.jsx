@@ -10,7 +10,7 @@ const Articles = () => {
   const [inputSearchToggle, setInputSearchToggle] = React.useState(false);
   const articles = useSelector(state => state.articles.data)
   const dispatch = useDispatch()
-console.log(articles.id);
+console.log(articles);
   const handleInputSearch = () => {
     setInputSearchToggle(!inputSearchToggle);
     // if (!inputSearchToggle) {

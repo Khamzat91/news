@@ -1,9 +1,18 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import pupkin from "../../images/pupkin.png";
+import { getArticles } from "../../redux/action/articles";
 import "./index.scss";
 
 
 const About = () => {
+const state = useSelector(state => state)
+const dispatch = useDispatch()
+
+React.useEffect(() => {
+  dispatch(getArticles())
+}, [])
+
   return (
     <div className="about">
       <div className="about__inner">
