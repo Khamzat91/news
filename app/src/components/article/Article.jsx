@@ -4,7 +4,12 @@ import articlePost from "../../images/articlePost.png";
 import { ReactComponent as Viewing } from "../../images/content/viewing.svg";
 import "./index.scss";
 
-const Article = ({ title, text, view,  }) => {
+const Article = ({ id,
+  title,
+  text,
+  description,
+  views,
+  createdAt}) => {
   const navigate = useNavigate();
 
   const onClickNavFullarticle = () => {
@@ -19,11 +24,11 @@ const Article = ({ title, text, view,  }) => {
           <div className="article__info-text">{text}</div>
           <div className="article__info-date">
             <div className="article__info-date__published">
-              12 августа 2019 в 08:06
+              {createdAt}
             </div>
             <div className="article__info-date__viewing">
               <Viewing />
-              <span>55</span>
+              <span>{views}</span>
             </div>
           </div>
         </div>

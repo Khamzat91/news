@@ -6,12 +6,13 @@ import "./index.scss";
 
 
 const About = () => {
-const state = useSelector(state => state)
-const dispatch = useDispatch()
+// const article = useSelector(state => state.articles.data)
+// const dispatch = useDispatch()
+// console.log(article);
 
-React.useEffect(() => {
-  dispatch(getArticles())
-}, [])
+// React.useEffect(() => {
+//   dispatch(getArticles())
+// }, [])
 
   return (
     <div className="about">
