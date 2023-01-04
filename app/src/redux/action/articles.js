@@ -26,6 +26,6 @@ export const showArticle = (id) => async (dispatch) => {
 export const getArticles = () => async (dispatch) => {
   const response = await axios.get(`http://localhost:5656/posts`);
   dispatch(setArticle(response.data.items))
-  console.log(response.data);
+
 };
 
