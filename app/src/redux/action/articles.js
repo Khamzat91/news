@@ -1,7 +1,7 @@
 import axios from "axios";
 import { SET_ARTICLES, SET_SHOW_ARTICLES } from "../types";
 
-export const setArticle = (items) => ({
+export const setArticles = (items) => ({
   type: SET_ARTICLES,
   payload: items,
 });
@@ -25,7 +25,5 @@ export const showArticle = (id) => async (dispatch) => {
 
 export const getArticles = () => async (dispatch) => {
   const response = await axios.get(`http://localhost:5656/posts`);
-  dispatch(setArticle(response.data.items))
-
+  dispatch(setArticles(response.data.items));
 };
-

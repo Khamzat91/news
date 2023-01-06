@@ -1,30 +1,34 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import articlePost from "../../images/articlePost.png";
 import { ReactComponent as Viewing } from "../../images/content/viewing.svg";
 import "./index.scss";
 
-const Article = ({ id,
-  title,
-  text,
-  description,
-  views,
-  createdAt}) => {
-  const navigate = useNavigate();
+const option = {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+};
 
+const Article = ({ id, title, text, views, createdAt }) => {
+  const navigate = useNavigate();
+  const date = new Date(createdAt);
+  const param = useParams();
   const onClickNavFullarticle = () => {
-    navigate("/fullarticle");
+    navigate("/fullarticle/"+id);
   };
 
   return (
-    <div onClick={onClickNavFullarticle} className="article active">
+    <div onClick={onClickNavFullarticle} className={"article "+ (param.id === id ? 'active' : '')}>
       <div className="article__inner">
         <div className="article__info">
           <div className="article__info-title">{title}</div>
           <div className="article__info-text">{text}</div>
           <div className="article__info-date">
             <div className="article__info-date__published">
-              {createdAt}
+              {date.toLocaleDateString("ru-RU", option)}
             </div>
             <div className="article__info-date__viewing">
               <Viewing />

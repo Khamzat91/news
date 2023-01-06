@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export const articles = (state = initialState, action) => {
-  switch (action.payload) {
+  switch (action.type) {
     case SET_ARTICLES: {
       return {...state,  data: action.payload}
     }

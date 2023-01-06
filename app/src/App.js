@@ -33,7 +33,7 @@ function App() {
           <Route path="index" element={<About />} />
           <Route path="/createarticle" element={<CreateArticle/>}/>
           <Route path="/editarticle" element={<EditArticle/>}/>
-          <Route path="/fullarticle" element={<FullArticle />} />
+          <Route path="/fullarticle/:id" element={<FullArticle />} />
         </Route>
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />

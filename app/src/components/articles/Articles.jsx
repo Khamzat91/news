@@ -16,10 +16,9 @@ const Articles = () => {
       dispatch(getArticles(''))
     }
   };
-
+  console.log(articles);
   React.useEffect(() => {
     dispatch(getArticles());
-    console.log(articles);
   }, []);
 
   return (
@@ -39,6 +38,7 @@ const Articles = () => {
           createdAt={article.createdAt}
         />
       )}
+      
     </div>
   );
 };
