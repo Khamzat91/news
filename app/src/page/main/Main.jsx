@@ -14,7 +14,7 @@ const Main = () => {
                 <Route path='/' element={<About/>}/>
                 <Route path='/createarticle' element={<CreateArticle/>}/>
                 <Route path='/editarticle' element={<EditArticle/>}/>
-                <Route path='/fullarticle' element={<FullArticle/>}/>
+                <Route path='/fullarticle/:id' element={<FullArticle/>}/>
             </Routes>
             <Articles/>
         </div>

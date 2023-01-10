@@ -17,8 +17,8 @@ const CreateArticle = () => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = async () => {
-   await dispatch(createArticle(data));
+  const onSubmit = () => {
+    dispatch(createArticle(data));
     setData({
       title: "",
       text: "",
