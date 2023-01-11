@@ -16,7 +16,6 @@ const Articles = () => {
       dispatch(getArticles(''))
     }
   };
-  console.log(articles);
   React.useEffect(() => {
     dispatch(getArticles());
   }, []);

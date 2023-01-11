@@ -18,7 +18,6 @@ const Article = ({ id, title, text, views, createdAt }) => {
   const param = useParams();
   const onClickNavFullarticle = () => {
     navigate(`/fullarticle/${id}`);
-    
   };
 
   return (
