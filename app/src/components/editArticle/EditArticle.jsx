@@ -1,12 +1,14 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { showArticle } from "../../redux/action/articles";
+import { deleteArticle, editArticle } from "../../redux/action/articles";
 import load from "../../images/content/load.svg";
 import "./index.scss";
+import { useNavigate } from "react-router-dom";
 
 const EditArticle = () => {
-  const article = useSelector(state => state.articles.article)
-  const dispatch = useDispatch()
+  const article = useSelector((state) => state.articles.article);
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
   const [data, setData] = React.useState({
     title: "",
     text: "",
@@ -22,14 +24,27 @@ const EditArticle = () => {
     setData(e.target.file);
   };
 
-React.useEffect(() => {
-  setData({
-    title: article?.title,
-    text: article?.text,
-    description: article?.description,
-  })
-}, [article])
+  React.useEffect(() => {
+    setData({
+      title: article?.title,
+      text: article?.text,
+      description: article?.description,
+    });
+  }, [article]);
 
+  const onSubmitEdit = () => {
+    dispatch(editArticle(article._id, data));
+    setData({
+      title: "",
+      text: "",
+      description: "",
+    });
+  };
+
+  const onSubmitDelete = () => {
+    dispatch(deleteArticle(article._id));
+   navigate('/')
+  };
 
   return (
     <div className="edit-article">
@@ -92,8 +107,10 @@ React.useEffect(() => {
           />
         </label>
         <div className="edit-article__inner-btn">
-          <div className="edit-article__inner-btn__delete">Удалить</div>
-          <div className="edit-article__inner-btn__hold">Сохранить</div>
+          <div onClick={onSubmitDelete} className="edit-article__inner-btn__delete">Удалить</div>
+          <div onClick={onSubmitEdit} className="edit-article__inner-btn__hold">
+            Сохранить
+          </div>
         </div>
       </div>
     </div>

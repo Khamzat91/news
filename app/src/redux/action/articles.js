@@ -25,6 +25,13 @@ export const editArticle = (id, data) => async () => {
   });
 };
 
+export const deleteArticle = (id, data) => async () => {
+  const token = JSON.parse(localStorage.getItem("user")).token;
+  await axios.delete(`http://localhost:5656/posts/${id}`, {
+    headers: { Authorization: token },
+  });
+};
+
 export const showArticle = (id) => async (dispatch) => {
   const response = await axios.get(`http://localhost:5656/posts/${id}`);
   dispatch(setShowArticle(response.data));
