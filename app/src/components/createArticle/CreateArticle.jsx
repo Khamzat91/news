@@ -17,6 +17,10 @@ const CreateArticle = () => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
+  const ChangeDataFile = (e) => {
+    setData(e.target.file)
+  }
+
   const onSubmit = () => {
     dispatch(createArticle(data));
     setData({
@@ -56,7 +60,7 @@ const CreateArticle = () => {
           </div>
           <div className="input__wrapper">
             <input
-              onChange={handleChangeData}
+              onChange={ChangeDataFile}
               value={data.file}
               name="file"
               type="file"

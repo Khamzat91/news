@@ -18,6 +18,13 @@ export const createArticle = (data) => async () => {
   });
 };
 
+export const editArticle = (id, data) => async () => {
+  const token = await JSON.parse(localStorage.getItem("user")).token;
+  await axios.patch(`http://localhost:5656/posts/${id}`, data, {
+    headers: { Authorization: token },
+  });
+};
+
 export const showArticle = (id) => async (dispatch) => {
   const response = await axios.get(`http://localhost:5656/posts/${id}`);
   dispatch(setShowArticle(response.data));

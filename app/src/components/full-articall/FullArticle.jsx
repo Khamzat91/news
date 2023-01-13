@@ -17,6 +17,7 @@ const option = {
 
 const FullArticle = () => {
   const article = useSelector((state) => state.articles.article);
+  const userId = JSON.parse(localStorage.getItem('user'))?._id
   const dispatch = useDispatch();
   const { id } = useParams();
   const date = new Date(article?.createdAt);
@@ -24,6 +25,7 @@ const FullArticle = () => {
   React.useEffect(() => {
     dispatch(showArticle(id));
   }, [id]);
+console.log(id);
   return (
     <div className="full-article">
       <div className="full-article__wrapper">
@@ -51,7 +53,7 @@ const FullArticle = () => {
             </div>
           </div>
         <div className="full-article__btn">
-          <Link to="/editarticle" className="full-article__btn-edit">Редактировать</Link>
+          {article?.user?._id === userId && <Link to="/editarticle" className="full-article__btn-edit">Редактировать</Link>}
           {/* <div className="full-article__btn-close">Удалить</div> */}
         </div>
           <Comments />
