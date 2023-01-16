@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as Fullview } from "../../images/content/fullview.svg";
 import fullImg from "../../images/fullImg.png";
-import Comments from "../comments/Comments";
+import Comment from "../comments/Comment";
 
 import "./index.scss";
 import { Link, useParams } from "react-router-dom";
@@ -60,7 +60,7 @@ const FullArticle = () => {
             )}
             {/* <div className="full-article__btn-close">Удалить</div> */}
           </div>
-          <Comments />
+          <Comment />
         </div>
       </div>
     </div>

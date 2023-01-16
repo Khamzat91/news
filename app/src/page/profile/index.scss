@@ -50,4 +50,10 @@
     border: none;
     padding-left: 0;
   }
+  .article {
+  
+    &.active{
+      border: none;
+    }
+  }
 }
