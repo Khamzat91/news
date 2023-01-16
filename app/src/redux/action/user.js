@@ -14,3 +14,8 @@ export const setUserData = (data, url, navigate) => async (dispatch) => {
    navigate('/profile')
 }
 
+export const logout = () => async (dispatch) => {
+   localStorage.removeItem('user')
+   dispatch(setIsAuth(false))
+}
+

@@ -3,8 +3,17 @@ import HeaderTop from "../../components/header/headerTop/HeaderTop";
 import Article from "../../components/article/Article";
 import "./index.scss";
 
+const option = {
+  year: 'numeric',
+  month: "long",
+  day: "numeric",
+  hour: "numeric",
+  minute: "numeric"
+}
+
 const Profile = () => {
   const [activeTab, setActiveTab] = React.useState("articles");
+  const user = JSON.parse(localStorage.getItem("user"));
   const onClickArticleId = () => {
     setActiveTab("articles");
   };
@@ -27,13 +36,15 @@ const Profile = () => {
     );
   };
 
+  const date = new Date(user.createdAt)
+
   return (
     <div className="profile">
-      <HeaderTop/>
+      <HeaderTop />
       <div className="profile__inner">
-        <div className="profile__inner-name">Вася Пупкин</div>
+        <div className="profile__inner-name">{user.fullName}</div>
         <div className="profile__inner-datereg">
-          Дата регистрации: <span>12 августа 2019 в 08:06</span>
+          Дата регистрации: <span>{date.toLocaleDateString("ru-Ru", option)}</span>
         </div>
         <div className="profile__inner-btn">
           <div onClick={onClickArticleId} className={addClassNameArticle()}>
@@ -43,7 +54,7 @@ const Profile = () => {
             Комментарии
           </div>
         </div>
-      <Article/>
+        <Article />
       </div>
     </div>
   );

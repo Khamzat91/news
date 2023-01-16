@@ -25,7 +25,7 @@ export const editArticle = (id, data) => async () => {
   });
 };
 
-export const deleteArticle = (id, data) => async () => {
+export const deleteArticle = (id) => async () => {
   const token = JSON.parse(localStorage.getItem("user")).token;
   await axios.delete(`http://localhost:5656/posts/${id}`, {
     headers: { Authorization: token },
