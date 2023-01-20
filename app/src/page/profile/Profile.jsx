@@ -2,6 +2,7 @@ import React from "react";
 import HeaderTop from "../../components/header/headerTop/HeaderTop";
 import Article from "../../components/article/Article";
 import "./index.scss";
+import { useDispatch } from "react-redux";
 
 const option = {
   year: 'numeric',
@@ -13,6 +14,7 @@ const option = {
 
 const Profile = () => {
   const [activeTab, setActiveTab] = React.useState("articles");
+  const dispatch = useDispatch()
   const user = JSON.parse(localStorage.getItem("user"));
   const onClickArticleId = () => {
     setActiveTab("articles");
@@ -35,6 +37,10 @@ const Profile = () => {
       (activeTab === "comments" ? "active" : "")
     );
   };
+
+  React.useEffect(() => {
+
+  }, [])
 
   const date = new Date(user.createdAt)
 
