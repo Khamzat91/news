@@ -5,16 +5,16 @@ import "./index.scss";
 import { useDispatch } from "react-redux";
 
 const option = {
-  year: 'numeric',
+  year: "numeric",
   month: "long",
   day: "numeric",
   hour: "numeric",
-  minute: "numeric"
-}
+  minute: "numeric",
+};
 
 const Profile = () => {
   const [activeTab, setActiveTab] = React.useState("articles");
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("user"));
   const onClickArticleId = () => {
     setActiveTab("articles");
@@ -39,10 +39,10 @@ const Profile = () => {
   };
 
   React.useEffect(() => {
+    dispatch();
+  }, []);
 
-  }, [])
-
-  const date = new Date(user.createdAt)
+  const date = new Date(user.createdAt);
 
   return (
     <div className="profile">
@@ -50,7 +50,8 @@ const Profile = () => {
       <div className="profile__inner">
         <div className="profile__inner-name">{user.fullName}</div>
         <div className="profile__inner-datereg">
-          Дата регистрации: <span>{date.toLocaleDateString("ru-Ru", option)}</span>
+          Дата регистрации:{" "}
+          <span>{date.toLocaleDateString("ru-Ru", option)}</span>
         </div>
         <div className="profile__inner-btn">
           <div onClick={onClickArticleId} className={addClassNameArticle()}>
