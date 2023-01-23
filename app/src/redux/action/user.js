@@ -24,5 +24,6 @@ export const getUserData = () => async (dispatch) => {
  const response = await axios.get(`http://localhost:5656/auth/${userId}`, {
     headers: { Authorization: token },
   });
-  dispatch(response)
+ 
+  console.log(response.data);
 };

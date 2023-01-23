@@ -3,6 +3,7 @@ import HeaderTop from "../../components/header/headerTop/HeaderTop";
 import Article from "../../components/article/Article";
 import "./index.scss";
 import { useDispatch } from "react-redux";
+import { getUserData } from "../../redux/action/user";
 
 const option = {
   year: "numeric",
@@ -39,7 +40,7 @@ const Profile = () => {
   };
 
   React.useEffect(() => {
-    dispatch();
+    dispatch(getUserData())
   }, []);
 
   const date = new Date(user.createdAt);
