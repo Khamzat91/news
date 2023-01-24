@@ -2,7 +2,7 @@ import React from "react";
 import HeaderTop from "../../components/header/headerTop/HeaderTop";
 import Article from "../../components/article/Article";
 import "./index.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getUserData } from "../../redux/action/user";
 
 const option = {
@@ -15,6 +15,7 @@ const option = {
 
 const Profile = () => {
   const [activeTab, setActiveTab] = React.useState("articles");
+  const articles = useSelector(state => state.user.articles)
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("user"));
   const onClickArticleId = () => {
@@ -51,7 +52,7 @@ const Profile = () => {
       <div className="profile__inner">
         <div className="profile__inner-name">{user.fullName}</div>
         <div className="profile__inner-datereg">
-          Дата регистрации:{" "}
+          Дата регистрации:
           <span>{date.toLocaleDateString("ru-Ru", option)}</span>
         </div>
         <div className="profile__inner-btn">
@@ -62,7 +63,7 @@ const Profile = () => {
             Комментарии
           </div>
         </div>
-        <Article />
+        {<Article />}
       </div>
     </div>
   );
