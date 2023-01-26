@@ -63,7 +63,7 @@ const Profile = () => {
             Комментарии
           </div>
         </div>
-        {<Article />}
+        {activeTab === "articles" && articles.map(() => <Article />)}
       </div>
     </div>
   );
