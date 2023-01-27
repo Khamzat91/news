@@ -63,7 +63,14 @@ const Profile = () => {
             Комментарии
           </div>
         </div>
-        {activeTab === "articles" && articles.map(() => <Article />)}
+        {activeTab === "articles" && articles?.map((article) => <Article key={article._id} 
+          id={article._id}
+          title={article.title}
+          text={article.text}
+          description={article.description}
+          views={article.views}
+          createdAt={article.createdAt}
+        />)}
       </div>
     </div>
   );
