@@ -5,8 +5,17 @@ import { ReactComponent as Exit } from "../../images/content/exit.svg";
 import { setIsAuth } from "../../redux/action/user";
 import "./index.scss";
 
+const option = {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric'
+}
+
 const OpenMenu = ({ handleExitToggle }) => {
   const isAuth = useSelector(state => state.user.isAuth)
+  const user = JSON.parse(localStorage.getItem("user"))
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -16,15 +25,17 @@ const OpenMenu = ({ handleExitToggle }) => {
     navigate('/')
   }
 
+  const date = new Date(user?.createdAt)
+
   return (
     <div className="open-menu">
       <div className="open-menu__inner">
-        <div className="open-menu__inner-info">
-          <div className="open-menu__inner-info__name">Вася Пупкин</div>
+        {isAuth ? <div className="open-menu__inner-info">
+          <div className="open-menu__inner-info__name">{user?.fullName}</div>
           <div className="open-menu__inner-info__date">
-            Дата регистрации: 12 августа 2019 в 08:06
+            Дата регистрации: <span>{date.toLocaleDateString("ru-Ru", option)}</span>
           </div>
-        </div>
+        </div> : <div className="open-menu__inner-info__date">Пользователь не авторизован</div>}
         <ul className="open-menu__inner-option">
           <li onClick={handleExitToggle}>
             <Link to="/">Главная</Link>
