@@ -7,7 +7,6 @@ import Comments from "../comments/Comments";
 import "./index.scss";
 import { Link, useParams } from "react-router-dom";
 import { showArticle } from "../../redux/action/articles";
-import Comments from "../comments/Comments";
 const option = {
   year: "numeric",
   month: "long",

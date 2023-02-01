@@ -9,6 +9,8 @@ const Comments = () => {
         <div className="comment">
           {comments.map((comment) => <Comment key={comment._id}
           text={comment.text}
+          id={comment._id}
+          createdAt={comment.createdAt}
           />)}  
         </div>
     );
