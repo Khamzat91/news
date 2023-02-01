@@ -2,11 +2,12 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as Fullview } from "../../images/content/fullview.svg";
 import fullImg from "../../images/fullImg.png";
-import Comment from "../comments/Comment";
+import Comments from "../comments/Comments";
 
 import "./index.scss";
 import { Link, useParams } from "react-router-dom";
 import { showArticle } from "../../redux/action/articles";
+import Comments from "../comments/Comments";
 const option = {
   year: "numeric",
   month: "long",
@@ -60,7 +61,7 @@ const FullArticle = () => {
             )}
             {/* <div className="full-article__btn-close">Удалить</div> */}
           </div>
-          <Comment />
+          <Comments />
         </div>
       </div>
     </div>

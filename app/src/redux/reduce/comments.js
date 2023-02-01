@@ -1,13 +1,15 @@
+import { SET_COMMENTS } from "../types";
 
 const initialState = {
-    comment: []
-}
-
-
-
+  comments: [],
+};
 
 export const comments = (state = initialState, action) => {
-switch(action.type) {
- 
-}
-}
+  switch (action.type) {
+    case SET_COMMENTS: {
+      return { ...state, comments: action.payload };
+    }
+    default:
+      return state;
+  }
+};
