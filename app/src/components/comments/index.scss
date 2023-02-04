@@ -13,10 +13,9 @@
     }
     &-post {
       margin-bottom: 48px;
+      display: flex;
+      justify-content: space-between;
       &__info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         margin-bottom: 16px;
       }
       &__name {
@@ -36,6 +35,10 @@
         line-height: 22px;
         color: #373737;
       }
+    &-icon{
+      display: flex;
+    justify-content: flex-end;
+    }
     }
     &-form {
       &__title {
@@ -74,4 +77,5 @@
       }
     }
   }
+ 
 }
