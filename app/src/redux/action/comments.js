@@ -23,3 +23,12 @@ export const createComment = (data) => async (dispatch) => {
     console.error(error);
   }
 };
+
+export const editComment = (id, text, article) => async (dispatch) => {
+const token = JSON.parse(localStorage.getItem("user")).token
+await axios.patch(`http://localhost:5656/comments/${id}`, {text}, {
+  headers: { Authorization: token },
+})
+dispatch(getComments(article));
+}
+

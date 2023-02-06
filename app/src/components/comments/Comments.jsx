@@ -1,11 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { createComment } from "../../redux/action/comments";
+import { createComment, editComment } from "../../redux/action/comments";
 import Comment from "./Comment";
 
 const Comments = () => {
   const [text, setText] = React.useState("");
+  const [selectEditComment, setSelectEditComment] = React.useState(null);
   const dispatch = useDispatch();
   const { id } = useParams();
   const comments = useSelector((state) => state.comments.comments);
@@ -20,6 +21,12 @@ const Comments = () => {
     setText("");
   };
 
+  const doEditComment = () => {
+    dispatch(editComment(selectEditComment, text, id))
+    setText('');
+    setSelectEditComment(null)
+  }
+
   return (
     <div className="comments">
       <div className="comment">
@@ -29,8 +36,11 @@ const Comments = () => {
             <Comment
               key={comment._id}
               text={comment.text}
-              id={comment._id}
+              idComment={comment._id}
+              fullName={comment.user.fullName}
               createdAt={comment.createdAt}
+              setSelectEditComment={setSelectEditComment}
+              setText={setText}
             />
           ))}
           <div className="comment__inner-form">
@@ -41,7 +51,7 @@ const Comments = () => {
               <textarea value={text} onChange={changeComment} type="text" />
               <button
                 className="comment__inner-form__btn"
-                onClick={onSubmitComment}
+                onClick={selectEditComment ? doEditComment : onSubmitComment}
               >
                 Отправить
               </button>

@@ -17,6 +17,10 @@
       justify-content: space-between;
       &__info {
         margin-bottom: 16px;
+        &-icon{
+          display: flex;
+        justify-content: flex-end;
+        }
       }
       &__name {
         color: #373737;
@@ -35,10 +39,7 @@
         line-height: 22px;
         color: #373737;
       }
-    &-icon{
-      display: flex;
-    justify-content: flex-end;
-    }
+ 
     }
     &-form {
       &__title {
