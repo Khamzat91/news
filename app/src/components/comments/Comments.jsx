@@ -10,7 +10,6 @@ const Comments = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const comments = useSelector((state) => state.comments.comments);
-  console.log(comments);
 
   const changeComment = (e) => {
     setText(e.target.value);
@@ -40,6 +39,7 @@ const Comments = () => {
               fullName={comment.user.fullName}
               createdAt={comment.createdAt}
               setSelectEditComment={setSelectEditComment}
+              selectEditComment={selectEditComment}
               setText={setText}
             />
           ))}

@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as Fullview } from "../../images/content/fullview.svg";
+import {getComments} from "../../redux/action/comments";
 import fullImg from "../../images/fullImg.png";
 import Comments from "../comments/Comments";
 
@@ -24,8 +25,11 @@ const FullArticle = () => {
 
   React.useEffect(() => {
     dispatch(showArticle(id));
+    dispatch(getComments(id))
   }, [id]);
   
+  
+
   return (
     <div className="full-article">
       <div className="full-article__wrapper">

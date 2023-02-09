@@ -4,6 +4,7 @@ import Article from "../../components/article/Article";
 import "./index.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserData } from "../../redux/action/user";
+import Comment from "../../components/comments/Comment";
 
 const option = {
   year: "numeric",
@@ -15,7 +16,8 @@ const option = {
 
 const Profile = () => {
   const [activeTab, setActiveTab] = React.useState("articles");
-  const articles = useSelector(state => state.user.articles)
+  const articles = useSelector((state) => state.user.articles);
+  const comments = useSelector((state) => state.comments.comments);
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("user"));
   const onClickArticleId = () => {
@@ -41,7 +43,7 @@ const Profile = () => {
   };
 
   React.useEffect(() => {
-    dispatch(getUserData())
+    dispatch(getUserData());
   }, []);
 
   const date = new Date(user.createdAt);
@@ -63,14 +65,29 @@ const Profile = () => {
             Комментарии
           </div>
         </div>
-        {activeTab === "articles" && articles?.map((article) => <Article key={article._id} 
-          id={article._id}
-          title={article.title}
-          text={article.text}
-          description={article.description}
-          views={article.views}
-          createdAt={article.createdAt}
-        />)}
+        {activeTab === "articles" &&
+          articles?.map((article) => (
+            <Article
+              key={article._id}
+              id={article._id}
+              title={article.title}
+              text={article.text}
+              description={article.description}
+              views={article.views}
+              createdAt={article.createdAt}
+            />
+          ))}
+        {activeTab === "comments" &&
+          comments?.map((comment) => (
+            <Comment
+              key={comment._id}
+              id={comment._id}
+              text={comment.text}
+              idComment={comment._id}
+              fullName={comment.user.fullName}
+              createdAt={comment.createdAt}
+            />
+          ))}
       </div>
     </div>
   );

@@ -38,4 +38,5 @@ const token = JSON.parse(localStorage.getItem("user")).token
 await axios.delete(`http://localhost:5656/comments/${id}`, {
   headers: { Authorization: token },
 })
+dispatch(getComments(article));
 }
