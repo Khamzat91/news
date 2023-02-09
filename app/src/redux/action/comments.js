@@ -32,3 +32,10 @@ await axios.patch(`http://localhost:5656/comments/${id}`, {text}, {
 dispatch(getComments(article));
 }
 
+
+export const  deleteComment = () => async (dispatch) => {
+const token = JSON.parse(localStorage.getItem("user")).token
+await axios.delete(`http://localhost:5656/comments/${id}`, {
+  headers: { Authorization: token },
+})
+}
