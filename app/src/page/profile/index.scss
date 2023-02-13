@@ -25,34 +25,31 @@
         @include f700;
       }
     }
+    &-buttons {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
     &-btn {
+      margin-bottom: 15px;
       font-size: 14px;
       line-height: 17px;
+      @include f700;
       color: $bg;
       display: flex;
       cursor: pointer;
-      &__article {
-        margin-right: 14px;
-        &.active {
-          color: #36b55a;
-          @include f700;
-        }
-      }
-      &__comment {
-        &.active {
-          color: #36b55a;
-          @include f700;
-        }
+
+      &.active {
+        color: #36b55a;
       }
     }
   }
-  .article__inner{
+  .article__inner {
     border: none;
     padding-left: 0;
   }
   .article {
-  
-    &.active{
+    &.active {
       border: none;
     }
   }

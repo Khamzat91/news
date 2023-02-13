@@ -1,4 +1,6 @@
-import { SET_ARTICLES, SET_SHOW_ARTICLES } from "../types";
+
+export const SET_ARTICLES = "SET_ARTICLES";
+export const SET_SHOW_ARTICLES = "SET_SHOW_ARTICLES";
 
 const initialState = {
   data: [],

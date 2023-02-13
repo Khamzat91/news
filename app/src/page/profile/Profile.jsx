@@ -15,11 +15,17 @@ const option = {
 };
 
 const Profile = () => {
-  const [activeTab, setActiveTab] = React.useState("articles");
   const articles = useSelector((state) => state.user.articles);
-  const comments = useSelector((state) => state.comments.comments);
-  const dispatch = useDispatch();
+  const comments = useSelector((state) => state.user.comments);
+  const [activeTab, setActiveTab] = React.useState("articles");
   const user = JSON.parse(localStorage.getItem("user"));
+  const date = new Date(user.createdAt);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(getUserData());
+  }, []);
+
   const onClickArticleId = () => {
     setActiveTab("articles");
   };
@@ -28,25 +34,9 @@ const Profile = () => {
     setActiveTab("comments");
   };
 
-  const addClassNameArticle = () => {
-    return (
-      "profile__inner-btn__article " +
-      (activeTab === "articles" ? "active" : "")
-    );
+  const onActiveClass = (tab) => {
+    return "profile__inner-btn " + (activeTab === tab ? "active" : "");
   };
-
-  const addClassNameComment = () => {
-    return (
-      "profile__inner-btn__comment " +
-      (activeTab === "comments" ? "active" : "")
-    );
-  };
-
-  React.useEffect(() => {
-    dispatch(getUserData());
-  }, []);
-
-  const date = new Date(user.createdAt);
 
   return (
     <div className="profile">
@@ -54,14 +44,15 @@ const Profile = () => {
       <div className="profile__inner">
         <div className="profile__inner-name">{user.fullName}</div>
         <div className="profile__inner-datereg">
-          Дата регистрации:
-          <span>{date.toLocaleDateString("ru-Ru", option)}</span>
+          Дата регистрации: <span>
+            {date.toLocaleDateString("ru-Ru", option)}
+            </span>
         </div>
-        <div className="profile__inner-btn">
-          <div onClick={onClickArticleId} className={addClassNameArticle()}>
+        <div className="profile__inner-buttons">
+          <div onClick={onClickArticleId} className={onActiveClass("articles")}>
             Статьи
           </div>
-          <div onClick={onClickCommentId} className={addClassNameComment()}>
+          <div onClick={onClickCommentId} className={onActiveClass("comments")}>
             Комментарии
           </div>
         </div>

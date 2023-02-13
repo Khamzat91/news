@@ -1,5 +1,5 @@
 import axios from "axios";
-import { SET_ARTICLES, SET_SHOW_ARTICLES } from "../types";
+import { SET_ARTICLES, SET_SHOW_ARTICLES } from "../reduce/articles";
 
 export const setArticles = (items) => ({
   type: SET_ARTICLES,

@@ -1,13 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as Fullview } from "../../images/content/fullview.svg";
-import {getComments} from "../../redux/action/comments";
 import fullImg from "../../images/fullImg.png";
 import Comments from "../comments/Comments";
 
 import "./index.scss";
 import { Link, useParams } from "react-router-dom";
 import { showArticle } from "../../redux/action/articles";
+import { getComments } from "../../redux/action/comments";
 const option = {
   year: "numeric",
   month: "long",

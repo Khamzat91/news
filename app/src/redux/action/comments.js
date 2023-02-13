@@ -1,15 +1,15 @@
 import axios from "axios";
-import { SET_COMMENTS } from "../types";
+import { SET_COMMENTS } from "../reduce/comments";
 
 export const setComments = (comment) => ({
   type: SET_COMMENTS,
   payload: comment,
 });
 
-const getComments = (id) => async (dispatch) => {
+export const getComments = (id) => async (dispatch) => {
   const response = await axios.get(`http://localhost:5656/comments/post/${id}`);
-  dispatch(setComments(response.data))
-//   console.log(response.data);
+  dispatch(setComments(response.data));
+  //   console.log(response.data);
 };
 
 export const createComment = (data) => async (dispatch) => {
@@ -25,18 +25,21 @@ export const createComment = (data) => async (dispatch) => {
 };
 
 export const editComment = (id, text, article) => async (dispatch) => {
-const token = JSON.parse(localStorage.getItem("user")).token
-await axios.patch(`http://localhost:5656/comments/${id}`, {text}, {
-  headers: { Authorization: token },
-})
-dispatch(getComments(article));
-}
+  const token = JSON.parse(localStorage.getItem("user")).token;
+  await axios.patch(
+    `http://localhost:5656/comments/${id}`,
+    { text },
+    {
+      headers: { Authorization: token },
+    }
+  );
+  dispatch(getComments(article));
+};
 
-
-export const  deleteComment = () => async (dispatch) => {
-const token = JSON.parse(localStorage.getItem("user")).token
-await axios.delete(`http://localhost:5656/comments/${id}`, {
-  headers: { Authorization: token },
-})
-dispatch(getComments(article));
-}
+export const deleteComment = (id, article) => async (dispatch) => {
+  const token = JSON.parse(localStorage.getItem("user")).token;
+  await axios.delete(`http://localhost:5656/comments/${id}`, {
+    headers: { Authorization: token },
+  });
+  dispatch(getComments(article));
+};

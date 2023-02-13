@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getArticles } from "../../redux/action/articles";
+import { getComments } from "../../redux/action/comments";
 import Article from "../article/Article";
 import HeaderTop from "../header/headerTop/HeaderTop";
 import HeaderTopInput from "../header/headertTopInp/HeaderTopInput";
@@ -18,6 +19,7 @@ const Articles = () => {
   };
   React.useEffect(() => {
     dispatch(getArticles());
+    dispatch(getComments())
   }, []);
 
   return (

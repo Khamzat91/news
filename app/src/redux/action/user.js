@@ -1,4 +1,4 @@
-import { IS_AUTH, USER_ARTICLES } from "../types";
+import { IS_AUTH, SET_USER_ARTICLES, SET_USER_COMMENTS } from "../reduce/user";
 import axios from "axios";
 
 export const setIsAuth = (isAuth) => ({
@@ -7,8 +7,13 @@ export const setIsAuth = (isAuth) => ({
 });
 
 export const userArticles = (articles) => ({
-  type: USER_ARTICLES,
+  type: SET_USER_ARTICLES,
   payload: articles
+})
+
+export const userComments = (comments) => ({
+  type: SET_USER_COMMENTS,
+  payload: comments
 })
 
 export const setUserData = (data, url, navigate) => async (dispatch) => {
@@ -30,4 +35,5 @@ export const getUserData = () => async (dispatch) => {
     headers: { Authorization: token },
   });
   dispatch(userArticles(response.data.posts.items));
+  dispatch(userComments(response.data.comments.items))
 };

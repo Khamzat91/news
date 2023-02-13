@@ -5,6 +5,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import "./index.scss";
 import { deleteComment } from "../../redux/action/comments";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 
 const option = {
   year: "numeric",
@@ -21,18 +23,18 @@ const Comment = ({
   fullName,
   setSelectEditComment,
   setText,
-  selectEditComment
 }) => {
   const date = new Date(createdAt);
-
+  const dispatch = useDispatch();
+  const { id } = useParams();
   const doEditTextComment = () => {
     setText(text);
     setSelectEditComment(idComment);
   };
 
   const doDeleteComment = () => {
-    dispatch(deleteComment(selectEditComment, id))
-  }
+    dispatch(deleteComment(idComment, id));
+  };
 
   return (
     <div className="comment__inner-post">
@@ -46,7 +48,11 @@ const Comment = ({
         </div>
         <div className="comment__inner-post__info-icon">
           <Stack direction="row" alignItems="center" spacing={1}>
-            <IconButton onClick={doDeleteComment} aria-label="delete" size="small">
+            <IconButton
+              onClick={doDeleteComment}
+              aria-label="delete"
+              size="small"
+            >
               <DeleteIcon fontSize="inherit" />
             </IconButton>
             <IconButton

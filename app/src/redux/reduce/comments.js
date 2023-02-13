@@ -1,4 +1,5 @@
-import { SET_COMMENTS } from "../types";
+
+export const SET_COMMENTS = "comments/SET_COMMENTS";
 
 const initialState = {
   comments: [],
