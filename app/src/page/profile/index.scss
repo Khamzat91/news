@@ -43,6 +43,11 @@
         color: #36b55a;
       }
     }
+    .article,
+    .comment {
+      max-width: 560px;
+      width: 100%;
+    }
   }
   .article__inner {
     border: none;
